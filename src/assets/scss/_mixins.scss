@@ -1,0 +1,153 @@
+// 1px = 0.0625
+// 2px = 0.125rem
+// 3px =  0.1875rem
+// 4px =  0.25rem
+// 5px =  0.3125rem
+// 6px =  0.375rem
+
+@use "variables" as *;
+@use "custom" as *;
+//  TEXT GRADIENT
+@mixin text-gradient() {
+  background: linear-gradient(to right, white 3%, #cf1512 76%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+// BACKGROUND GRADIENT
+@mixin background-gradient() {
+  background: linear-gradient(180deg, #141414 0%, #202022 50%, #47474f 100%);
+}
+
+// FLEX
+
+@mixin flex-center($gap: 0px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin flex-between($align: center) {
+  display: flex;
+  justify-content: space-between;
+  align-items: $align;
+}
+
+@mixin flex-column($gap: 4px) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin flex-gap($gap: 4px) {
+  display: flex;
+  flex-direction: unset;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin flex-wrap($gap: 4px) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+}
+
+//  POTISITION
+
+@mixin position-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin position-center-right($right: 10%) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: $right;
+}
+
+@mixin position-center-left($left: 10%) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: $left;
+}
+@mixin position-top-right($top: 10%, $right: 10%) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+@mixin position-bottom-left($bottom: 100%, $left: 0%) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+}
+
+// HOVER
+
+@mixin hover-primary-white($radius: 6px) {
+  transform: all 0.2s ease-in-out;
+  &:hover {
+    background-color: $black;
+    opacity: 1;
+    color: $white;
+    border-radius: $radius;
+    cursor: pointer;
+  }
+}
+
+@mixin hover-text-secondary {
+  transform: all 0.2s ease-in-out;
+  &:hover {
+    color: $red;
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+@mixin hover-background-secondary {
+  transform: all 0.2s ease-in-out;
+  &:hover {
+    background: $red;
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+//
+@mixin triangle-before($top: 0%, $right: 0%) {
+  &::before {
+    position: absolute;
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    top: $top;
+    right: $right;
+    cursor: pointer;
+  }
+}
+@mixin triangle-after($top: 0%, $right: 0%, $width: 15%) {
+  ::after {
+    position: absolute;
+    content: "";
+    height: 18px;
+    background-color: transparent;
+    width: $width;
+    top: $top;
+    right: $right;
+  }
+}
+
+// Text break line 2
+@mixin text-eclipse($line: 2) {
+  font-size: $px-16;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,7 @@
+@use "variables" as *;
+
+$primary: $black;
+$secondary: $red;
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
