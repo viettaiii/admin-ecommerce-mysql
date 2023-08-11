@@ -1,13 +1,11 @@
+import CreateProductForm from "./components/CreateProductForm";
 
 function App() {
-
   return (
     <div className="App">
-       dsa
+      <CreateProductForm />
     </div>
   );
 }
-
-
 
 export default App;
